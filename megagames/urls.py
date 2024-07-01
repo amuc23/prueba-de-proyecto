@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views
+from . import views 
+
 
 urlpatterns = [ 
     path('index' , views.index , name="index" ),
@@ -14,6 +15,7 @@ urlpatterns = [
     path('juego/<str:nombre>/', views.detalle_juego, name='detalle_juego'),
     path('consola/<str:nombre>/', views.detalle_consola, name='detalle_consola'),
     path('juegoraw' , views.juegoraw , name='juegoraw' ),
+    path('logout/', views.exit, name='exit'),
 
     ##### CRUD JUEGOS
     path('lista_videojuegos/', views.lista_videojuegos, name='lista_videojuegos'),

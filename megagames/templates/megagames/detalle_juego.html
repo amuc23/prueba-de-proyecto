@@ -78,7 +78,6 @@
         &nbsp;
       </div>
 
-      <!--tarjeta con producto-->
       <div class="row justify-content-center align-items-center">
         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 mb-5">
             <div class="card h-100 mx-auto">
@@ -95,12 +94,13 @@
                     <p class="card-text"><strong>Precio:</strong> ${{ videojuego.precio }}</p>
                     <p class="card-text"><strong>Stock:</strong> {{ videojuego.stock }}</p>
                     <a href="{% url 'juego' %}" class="btn btn-secondary">Volver</a>
-                    
-                    <a href="{% url 'carro_Videojuegos:add_GAME' videojuego.id%}" class="btn btn-primary">Añadir al Carrito</a>
+
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'carro_Videojuegos:add_GAME' videojuego.id %}" class="btn btn-primary">Añadir al Carrito</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Añadir al Carrito</a>
+                    {% endif %}
                 </div>
-
-                
-
             </div>
         </div>
     </div>

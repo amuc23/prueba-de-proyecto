@@ -60,29 +60,33 @@
 <main class="container-fluid color-letra-blanco">
     <section class="container-fluid mt-5">
         <div id="containerCarro" class="container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-5 color-letra-blanco">
-
-            <!-- Carrito de Compras -->
             <h1 class="color-letra-blanco">Carrito de Compras</h1>
 
-            <!-- Contenido del Carrito -->
-            {% include "carrito/widget.html" %}
+            {% if user.is_authenticated %}
+                <!-- Mostrar el contenido del carrito -->
+                {% include "carrito/widget.html" %}
 
-            <!-- Precio final de la compra -->
-            <div class="d-flex justify-content-between align-items-center">
-                <h4 class="color-letra-blanco">Total del Carrito: ${{ precio_total }}</h4> <!-- Muestra el precio total calculado -->
-                <div>
-                    <a href="{% url 'carro_Videojuegos:clean_GAME'%}" class="btn btn-primary">Confirmar Compra</a>
+                <!-- Precio final de la compra -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="color-letra-blanco">Total del Carrito: ${{ precio_total }}</h4>
+                    <div>
+                        <a href="{% url 'carro_Videojuegos:clean_GAME'%}" class="btn btn-primary">Confirmar Compras</a>
+                    </div>
                 </div>
-            </div>
+            {% else %}
+                <!-- Mostrar el botón de login si no está autenticado -->
+                <div class="alert alert-warning" role="alert">
+                    Debes iniciar sesión para ver tu carrito de compras.
+                </div>
+                <a href="#" class="btn btn-primary">Iniciar Sesión</a>
+            {% endif %}
 
             <!-- Espacio -->
             <div class="container">&nbsp;</div>
-
-            <!-- Botón para volver al menú principal -->
+            <!-- Botón volver al menú -->
             <div class="container row">
-                <a href="{% url 'index' %}" class="btn btn-secondary my-2 my-sm-0" style="font-size: 1.25rem; padding: 10px 20px;" type="submit">Volver al Menú Principal</a>
+                <a href="{% url 'index' %}" class="btn btn-secondary my-2 my-sm-0" style="font-size: 1.25rem; padding: 10px 20px;" type="submit">Volver al Menu Principal</a>
             </div>
-
         </div>
     </section>
 

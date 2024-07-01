@@ -1,10 +1,8 @@
 from django.urls import path
-
-from .views import vista_registro
+from . import views
 
 urlpatterns = [
-    
-    #muestra la clase como una vista
-    path('',vista_registro.as_view(), name="Autenticacion")
-    
+ path('registro/', views.registro_view, name='registro'),  # Nombre 'registro' asignado aquí
+ path('login/', views.login_view, name='login'),
+    # Otras URLs de la app de autenticación
 ]

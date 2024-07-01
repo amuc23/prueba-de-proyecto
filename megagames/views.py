@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404 , redirect   
-
+from django.contrib.auth.decorators import login_required
 from .models import Videojuego,Consola,Jugete
-
+from django.contrib.auth import logout
 from .forms import VideojuegoForm , ConsolaForm , JugeteForm
 
 # Create your views here.
+
 def index (request):
     context ={}
     return render (request, 'megagames/index.html',context)
@@ -69,6 +70,7 @@ def perfil (request):
     context ={}
     return render (request, 'megagames/perfil.html',context)
 
+@login_required
 def carrito (request):
     context ={}
     return render (request, 'megagames/carrito.html',context)
@@ -78,6 +80,10 @@ def juegoraw(request):
     videojuegos = Videojuego.objects.raw('SELECT * FROM megagames_videojuego')
     context = {"videojuegos": videojuegos}
     return render(request, 'megagames/juegoraw.html', context)
+
+def exit(request):
+    logout(request)
+    return redirect('index')
 
 
 ######## CRUD VIDEOJUEGO 
