@@ -1,11 +1,13 @@
 class CARRO_videojuegos:
     def __init__(self, request):
-        self.request = request
-        self.session = request.session
-        carro_videojuegos = self.session.get("CARRO_videojuegos")
-        self.CARRO_videojuegos = carro_videojuegos if carro_videojuegos else {}
+        if request.user.is_authenticated:
+            self.request = request
+            self.session = request.session
+            carro_videojuegos = self.session.get("CARRO_videojuegos")
+            self.CARRO_videojuegos = carro_videojuegos if carro_videojuegos else {}
 
     def agregar_videojuegos(self, videojuego):
+        
         videojuego_id = str(videojuego.id)
         if videojuego_id not in self.CARRO_videojuegos:
             self.CARRO_videojuegos[videojuego_id] = {

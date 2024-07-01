@@ -9,8 +9,9 @@ urlpatterns = [
     path('megagames/', include('megagames.urls')),
     
     path('carro_Videojuegos/', include('carro_Videojuegos.urls')),
+    path('autenticacion/', include('autenticacion.urls')),
 
-     path('', RedirectView.as_view(url='/megagames/index', permanent=True)),  # Redirección desde la raíz
+    path('', RedirectView.as_view(url='/megagames/index', permanent=True)),  # Redirección desde la raíz
 ]
 
 if settings.DEBUG:
