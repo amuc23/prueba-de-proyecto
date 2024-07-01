@@ -41,7 +41,7 @@ def restar_videojuego(request, videojuego_id):
 def limpiar_carro_videojuegos(request):
     carroV = CARRO_videojuegos(request)
     carroV.limpiar_carro_videojuegos()
-    return redirect("juego")
+    return redirect("carrito")
 
 
 
