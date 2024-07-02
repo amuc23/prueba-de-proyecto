@@ -1,5 +1,10 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from .models import Videojuego , Consola , Jugete
+
+
+class CustomUserCreationForm(UserCreationForm):
+    pass
 
 class VideojuegoForm(forms.ModelForm):
     class Meta:
@@ -46,3 +51,5 @@ class JugeteForm(forms.ModelForm):
             raise forms.ValidationError('Debe proporcionar una imagen o una URL de la imagen.')
 
         return cleaned_data
+    
+

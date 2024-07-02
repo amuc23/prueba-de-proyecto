@@ -1,22 +1,40 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Videojuegos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Videojuegos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Lista de Videojuegos raw</h1>
-    <ul>
-        {% for videojuego in videojuegos %}
-            <li>
-                <h2>{{ videojuego.nombre }}</h2>
-                <p><strong>Descripción:</strong> {{ videojuego.descripcion }}</p>
-                <p><strong>Precio:</strong> ${{ videojuego.precio }}</p>
-                <p><strong>Consolas:</strong> {{ videojuego.consolas }}</p>
-                <p><strong>Stock:</strong> {{ videojuego.stock }}</p>
-                <img src="{{ videojuego.url_imagen }}" alt="{{ videojuego.nombre }}" width="200">
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1 class="mt-5">Lista de Videojuegos</h1>
+        <div class="row mt-4">
+            {% for videojuego in videojuegos %}
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card h-100">
+                        {% if videojuego.imagen %}
+                            <img src="{{ videojuego.imagen.url }}" class="card-img-top" alt="{{ videojuego.nombre }}">
+                        {% elif videojuego.url_imagen %}
+                            <img src="{{ videojuego.url_imagen }}" class="card-img-top" alt="{{ videojuego.nombre }}">
+                        {% else %}
+                            <img src="{% static 'images/default_image.jpg' %}" class="card-img-top" alt="Imagen por defecto">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ videojuego.nombre }}</h5>
+                            <p class="card-text"><strong>Descripción:</strong> {{ videojuego.descripcion }}</p>
+                            <p class="card-text"><strong>Precio:</strong> ${{ videojuego.precio }}</p>
+                            <p class="card-text"><strong>Consolas:</strong> {{ videojuego.consolas }}</p>
+                            <p class="card-text"><strong>Stock:</strong> {{ videojuego.stock }}</p>
+                            <a href="{% url 'detalle_juego' videojuego.nombre %}" class="btn btn-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

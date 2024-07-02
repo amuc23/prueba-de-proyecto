@@ -16,7 +16,7 @@ urlpatterns = [
     path('consola/<str:nombre>/', views.detalle_consola, name='detalle_consola'),
     path('juegoraw' , views.juegoraw , name='juegoraw' ),
     path('logout/', views.exit, name='exit'),
-
+     path('register/', views.register, name='register'),
     ##### CRUD JUEGOS
     path('lista_videojuegos/', views.lista_videojuegos, name='lista_videojuegos'),
     path('videojuego_crear/', views.videojuego_crear, name='videojuego_crear'),

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404 , redirect
 from django.contrib.auth.decorators import login_required
 from .models import Videojuego,Consola,Jugete
 from django.contrib.auth import logout
-from .forms import VideojuegoForm , ConsolaForm , JugeteForm
+from .forms import VideojuegoForm , ConsolaForm , JugeteForm , CustomUserCreationForm
 
 # Create your views here.
 
@@ -84,6 +84,23 @@ def juegoraw(request):
 def exit(request):
     logout(request)
     return redirect('index')
+
+#########
+
+def register(request):
+    data = {
+        'form': CustomUserCreationForm()
+    }
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Cambia 'index' por el nombre de la vista a la que quieres redirigir después de registrar
+
+    return render(request, 'registration/register.html', data)
+
+
 
 
 ######## CRUD VIDEOJUEGO 
