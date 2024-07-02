@@ -99,7 +99,7 @@
                             <p class="card-text"><strong>Stock:</strong> {{ jugete.stock }}</p>
                             <a href="{% url 'jugetes' %}" class="btn btn-secondary">Volver</a>
                             {% if user.is_authenticated %}
-                                <a href="{% url 'carro_Jugetes:add_GAMEJGT' videojuego.id %}" class="btn btn-primary">Añadir al Carrito</a>
+                                <a href="{% url 'carro_Jugetes:add_GAMEJGT' jugete.idjugete %}" class="btn btn-primary">Añadir al Carrito</a>
                             {% else %}
                                 <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Añadir al Carrito</a>
                             {% endif %}

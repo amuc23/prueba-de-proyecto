@@ -24,7 +24,6 @@
                     </td>   
                 </tr>
             {% endfor %}
-        {% if request.session.CARRO_jugetes %}
             {% for key, value in request.session.CARRO_jugetes.items %}
                 <tr class="text-center">
                     <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 50px;"></td>
@@ -37,7 +36,6 @@
                     </td>   
                 </tr>
             {% endfor %}
-        {% if request.session.CARRO_consolas %}
             {% for key, value in request.session.CARRO_consolas.items %}
                 <tr class="text-center">
                     <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 50px;"></td>
