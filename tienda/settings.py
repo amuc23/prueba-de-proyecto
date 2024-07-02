@@ -60,6 +60,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'carro_Videojuegos.context_processor.valor_final_carrito',
+                'carro_Jugetes.context_processor.valor_final_carrito',
+                #'carro_Consolas.context_processor.valor_final_carrito',
             ],
         },
     },

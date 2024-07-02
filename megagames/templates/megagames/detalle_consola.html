@@ -94,6 +94,11 @@
                     <p class="card-text"><strong>Precio:</strong> ${{ consola.precio }}</p>
                     <p class="card-text"><strong>Stock:</strong> {{ consola.stock }}</p>
                     <a href="{% url 'consolas' %}" class="btn btn-secondary">Volver</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'carro_Jugetes:add_CONSOLA' videojuego.id %}" class="btn btn-primary">Añadir al Carrito</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Añadir al Carrito</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ class CARRO_videojuegos:
                 "videojuego_id": videojuego.id,
                 "nombre": videojuego.nombre,
                 "precio": str(videojuego.precio),
-                "Stock": 1,  # Asegúrate de que 'Stock' sea consistente
+                "Stock": 1,  
                 "imagen": videojuego.imagen.url,
             }
         else:

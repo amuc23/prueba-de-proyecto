@@ -24,6 +24,32 @@
                     </td>   
                 </tr>
             {% endfor %}
+        {% if request.session.CARRO_jugetes %}
+            {% for key, value in request.session.CARRO_jugetes.items %}
+                <tr class="text-center">
+                    <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 50px;"></td>
+                    <td>{{ value.nombre }}</td>
+                    <td>{{ value.precio }}</td>
+                    <td>{{ value.Stock }}</td>
+                    <td>
+                        <a href="{% url 'carro_Jugetes:add_GAMEJGT2' value.jugeteid %}" class="btn btn-sm btn-secondary">+</a>
+                        <a href="{% url 'carro_Jugetes:minus_GAMEJGT2' value.jugeteid %}" class="btn btn-sm btn-danger">-</a>
+                    </td>   
+                </tr>
+            {% endfor %}
+        {% if request.session.CARRO_consolas %}
+            {% for key, value in request.session.CARRO_consolas.items %}
+                <tr class="text-center">
+                    <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 50px;"></td>
+                    <td>{{ value.nombre }}</td>
+                    <td>{{ value.precio }}</td>
+                    <td>{{ value.Stock }}</td>
+                    <td>
+                        <a href="{% url 'carro_Consolas:add_CONSOLA2' value.idconsola %}" class="btn btn-sm btn-secondary">+</a>
+                        <a href="{% url 'carro_Consolas:minus_CONSOLA2' value.idconsola %}" class="btn btn-sm btn-danger">-</a>
+                    </td>   
+                </tr>
+            {% endfor %}
         {% else %}
             <tr>
                 <th colspan="5">
