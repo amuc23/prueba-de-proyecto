@@ -1,5 +1,5 @@
 from django.urls import path
-from ..carro_Consolas import views
+from . import views
 
 app_name="carro_Jugetes"
 

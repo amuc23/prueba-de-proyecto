@@ -53,7 +53,7 @@ def agregar_jugete2(request, jugeteid):
     productoJGT = Jugete.objects.get(idjugete=jugeteid)
     # Agregar al carro 
     carroVJGT.agregar_jugetes(productoJGT)
-    return redirect("jugetes")
+    return redirect("carrito")
 
 
 # Función para eliminar del carro
@@ -61,18 +61,18 @@ def eliminar_jugete2(request, jugeteid):
     carroVJGT = CARRO_jugetes(request)
     productoJGT = Jugete.objects.get(idjugete=jugeteid)
     carroVJGT.eliminar_jugetes(productoJGT)
-    return redirect("jugetes")
+    return redirect("carrito")
 
 # Función para restar  del carro
 def restar_jugete2(request, jugeteid):
     carroVJGT = CARRO_jugetes(request)
     productoJ = Jugete.objects.get(idjugete=jugeteid)
     carroVJGT.restar_jugetes(productoJ)
-    return redirect("jugetes")
+    return redirect("carrito")
 
 # Función para limpiar el carro
 def limpiar_carro_jugetes2(request):
     carroVJGT = CARRO_jugetes(request)
     carroVJGT.limpiar_carro_jugetes()
-    return redirect("jugetes")
+    return redirect("carrito")
 

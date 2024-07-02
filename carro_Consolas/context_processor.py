@@ -5,11 +5,11 @@
 
 # carro_Videojuegos/context_processor.py
 
-def valor_final_carritoJ(request):
+def valor_final_carritoC(request):
     precio_total = 0
     if request.user.is_authenticated:
-        if "CARRO_jugetes" in request.session:
-            carrito = request.session["CARRO_jugetes"]
+        if "CARRO_consolas" in request.session:
+            carrito = request.session["CARRO_consolas"]
             for key, value in carrito.items():
                 precio_total += int(value["precio"]) * int(value["Stock"])
     return {'precio_total': precio_total}

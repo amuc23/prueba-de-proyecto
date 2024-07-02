@@ -210,3 +210,9 @@ def eliminar_juguete(request, nombre):
         juguete.delete()
         return redirect('lista_juguetes')
     return render(request, 'megagames/eliminar_juguete.html', {'juguete': juguete})
+
+
+
+
+
+
