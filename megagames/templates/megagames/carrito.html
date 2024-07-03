@@ -73,7 +73,10 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h4 class="color-letra-blanco">Total del Carrito: ${{ precio_total }}</h4>
                     <div>
-                        <a href="{% url 'carro_Videojuegos:clean_GAME'%}" class="btn btn-primary">Confirmar Compras</a>
+                        <form action="{% url 'limpiar_carrito' %}" method="post" class="limpiar-carritos-form">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Confirmar Compras</button>
+                        </form>
                     </div>
                 </div>
             {% else %}

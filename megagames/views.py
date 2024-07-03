@@ -4,6 +4,10 @@ from .models import Videojuego,Consola,Jugete
 from django.contrib.auth import logout
 from .forms import VideojuegoForm , ConsolaForm , JugeteForm , CustomUserCreationForm
 
+from carro_Videojuegos import carro_Videojuegos
+from carro_Jugetes import carro_Jugetes
+from carro_Consolas import carro_Consolas
+
 # Create your views here.
 
 def index (request):
@@ -212,6 +216,18 @@ def eliminar_juguete(request, nombre):
     return render(request, 'megagames/eliminar_juguete.html', {'juguete': juguete})
 
 
+##############################################
+
+
+def clean_all_carritos(request):
+    if "CARRO_videojuegos" in request.session:
+        del request.session["CARRO_videojuegos"]
+    if "CARRO_jugetes" in request.session:
+        del request.session["CARRO_jugetes"]
+    if "CARRO_consolas" in request.session:
+        del request.session["CARRO_consolas"]
+
+    return redirect('carrito') 
 
 
 

@@ -11,7 +11,7 @@
     </thead>
 
     <tbody>
-        {% if request.session.CARRO_videojuegos %}
+        {% if request.session.CARRO_videojuegos or request.session.CARRO_jugetes or request.session.CARRO_consolas %}
             {% for key, value in request.session.CARRO_videojuegos.items %}
                 <tr class="text-center">
                     <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 50px;"></td>
@@ -43,8 +43,8 @@
                     <td>{{ value.precio }}</td>
                     <td>{{ value.Stock }}</td>
                     <td>
-                        <a href="{% url 'carro_Consolas:add_CONSOLA2' value.idconsola %}" class="btn btn-sm btn-secondary">+</a>
-                        <a href="{% url 'carro_Consolas:minus_CONSOLA2' value.idconsola %}" class="btn btn-sm btn-danger">-</a>
+                        <a href="{% url 'carro_Consolas:add_CONSOLA2' value.consolaid %}" class="btn btn-sm btn-secondary">+</a>
+                        <a href="{% url 'carro_Consolas:minus_CONSOLA2' value.consolaid %}" class="btn btn-sm btn-danger">-</a>
                     </td>   
                 </tr>
             {% endfor %}

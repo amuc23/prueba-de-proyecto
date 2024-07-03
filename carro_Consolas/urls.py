@@ -1,23 +1,23 @@
 from django.urls import path
 from . import views
 
-app_name="carro_Videojuegos"
+app_name="carro_Consolas"
 
 
 
 urlpatterns = [ 
     
     #se identifica con add_GAME, etc...  para no confundir con otras funciones
-    path("add_GAME/<int:videojuego_id>/", views.agregar_videojuego, name="add_GAME"),
-    path("del_GAME/<int:videojuego_id>/", views.eliminar_videojuego, name="del_GAME"),
-    path("minus_GAME/<int:videojuego_id>/", views.restar_videojuego, name="minus_GAME"),
-    path("clean_GAME", views.limpiar_carro_videojuegos, name="clean_GAME"),
+    path("add_CONSOLA/<int:consolaid>/", views.agregar_consola, name="add_CONSOLA"),
+    path("del_CONSOLA/<int:consolaid>/", views.eliminar_consola, name="del_CONSOLA"),
+    path("minus_CONSOLA/<int:consolaid>/", views.restar_consola, name="minus_CONSOLA"),
+    path("clean_CONSOLA", views.limpiar_carro_consola, name="clean_CONSOLA"),
     
     
     ##apartado exclusiv carro
-    path('add_GAME2/<int:videojuego_id>/', views.agregar_videojuego2, name='add_GAME2'),
-    path('del_GAME2/<int:videojuego_id>/', views.eliminar_videojuego2, name='del_GAME2'),
-    path('minus_GAME2/<int:videojuego_id>/', views.restar_videojuego2, name='minus_GAME2'),
+    path("add_CONSOLA2/<int:consolaid>/", views.agregar_consola2, name="add_CONSOLA2"),
+    path("del_CONSOLA2/<int:consolaid>/", views.eliminar_consola2, name="del_CONSOLA2"),
+    path("minus_CONSOLA2/<int:consolaid>/", views.restar_consola2, name="minus_CONSOLA2"),
     
     
 ]

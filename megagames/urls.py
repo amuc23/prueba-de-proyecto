@@ -36,6 +36,7 @@ urlpatterns = [
     path('editar_juguete/<str:nombre>/', views.editar_juguete, name='editar_juguete'),
     path('eliminar_juguete/<str:nombre>/', views.eliminar_juguete, name='eliminar_juguete'),
     
+    path('limpiar_carrito/', views.clean_all_carritos, name='limpiar_carrito')
     
 ]
 

@@ -37,7 +37,7 @@ def restar_jugete(request, jugeteid):
 def limpiar_carro_jugetes(request):
     carroVJGT = CARRO_jugetes(request)
     carroVJGT.limpiar_carro_jugetes()
-    return redirect("jugetes")
+    return redirect("carrito")
 
 
 

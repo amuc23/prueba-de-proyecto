@@ -11,7 +11,7 @@ urlpatterns = [
     
     path('carro_Videojuegos/', include('carro_Videojuegos.urls')),
     path('carro_Jugetes/', include('carro_Jugetes.urls')),
-    #path('carro_Consolas/', include('carro_Consolas.urls')),
+    path('carro_Consolas/', include('carro_Consolas.urls')),
 
 
     path('', RedirectView.as_view(url='/megagames/index', permanent=True)),  # Redirección desde la raíz
